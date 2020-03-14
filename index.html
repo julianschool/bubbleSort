@@ -16,9 +16,9 @@
     var sketchProc = function(processingInstance) {
      with (processingInstance) {
         size(800, 600); 
-//Bubble sort!
+//Bubble sorting
 //The draw updates the random variables every frame per second. Raise the framerate to make the changes between the different sorted instances. (it is not trying to sort it, it is getting assigned new random values each fps)
-frameRate(3);
+frameRate(1);
 draw = function() {
 var bubbleSort = function(array){   
 this.array = array;
@@ -38,10 +38,14 @@ bubbleSort.prototype.display = function(){
 background(255, 255, 255);
 for(var i = 0; i < width-(width/30); i++){
 fill(255-(this.array[i]/height)*255, 255-(this.array[i]/height)*255, 255-(this.array[i]/height)*255);
-stroke(255, 0, 0);
-line(0*(width/30)+width/30/2, height-this.array[0], 29*(width/30)+width/30/2, height-this.array[29]);
 noStroke();
-    rect(i*(width/30), height-this.array[i], width/30, this.array[i]);
+rect(i*(width/30), height-this.array[i], width/30, this.array[i]);
+stroke(255, 0, 0);
+strokeWeight(5);
+beginShape();
+vertex(i*(width/30), height-this.array[i]);
+vertex((i+1)*(width/30), height-this.array[i+1]);
+endShape();
 }
 };
 //the random values{
@@ -50,6 +54,7 @@ var bubble = new bubbleSort([random(45, height), random(45, height), random(45, 
 bubble.sort();
 bubble.display();
 };
+
 
 
 
