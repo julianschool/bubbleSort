@@ -35,19 +35,22 @@ for (var j = 0; j < this.array.length-i-1; j++) {
 }
 };
 bubbleSort.prototype.display = function(){
+background(255, 255, 255);
 for(var i = 0; i < width-(width/30); i++){
 fill(255-(this.array[i]/height)*255, 255-(this.array[i]/height)*255, 255-(this.array[i]/height)*255);
+stroke(255, 0, 0);
+line(0*(width/30), height-this.array[0], 29*(width/30)+width/30, height-this.array[29]);
+noStroke();
     rect(i*(width/30), height-this.array[i], width/30, this.array[i]);
 }
 };
 //the random values{
 var bubble = new bubbleSort([random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height)]);
 //}
-background(255, 255, 255);
-noStroke();
 bubble.sort();
 bubble.display();
 };
+
 
 
 
