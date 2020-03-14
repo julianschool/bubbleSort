@@ -55,16 +55,16 @@ temp.push(random(45, height));
 var bubble = new bubbleSort(temp);
 bubble.display();
 fill(255, 0, 0);
-textFont(createFont("impact"), 70);
-text("UNSORTED", 0, 70);
+textFont(createFont("impact"), 150);
+text("UNSORTED", 0, 150);
 var timer = 0;
 draw = function() {
     timer += 0.1;
     if(timer >= 15 && timer < 35){
         bubble.display();
         fill(0, 255, 0);
-        textFont(createFont("impact"), 70);
-        text("SORTED", 0, 70);
+        textFont(createFont("impact"), 150);
+        text("SORTED", 0, 150);
         bubble.sort();
     }
 };
