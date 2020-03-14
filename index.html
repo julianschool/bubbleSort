@@ -1,1 +1,64 @@
+<!DOCTYPE html>
 
+<html> 
+ <head>
+    <title>Bubble Sorting</title> 
+</head>
+ <body>
+    <p align="center"> 
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(800, 600); 
+//Bubble sort!
+//The draw updates the random variables every frame per second. Raise the framerate to make the changes between the different sorted instances. (it is not trying to sort it, it is getting assigned new random values each fps)
+frameRate(3);
+draw = function() {
+var bubbleSort = function(array){   
+this.array = array;
+};
+bubbleSort.prototype.sort = function(){
+for (var i = 0; i < this.array.length-1; i++) {
+for (var j = 0; j < this.array.length-i-1; j++) {
+    if (this.array[j] > this.array[j+1]) { 
+    var switch1 = this.array[j]; 
+    this.array[j] = this.array[j+1]; 
+    this.array[j+1] = switch1; 
+} 
+}
+}
+};
+bubbleSort.prototype.display = function(){
+for(var i = 0; i < width-(width/30); i++){
+fill(255-(this.array[i]/height)*255, 255-(this.array[i]/height)*255, 255-(this.array[i]/height)*255);
+    rect(i*(width/30), height-this.array[i], width/30, this.array[i]);
+}
+};
+//the random values{
+var bubble = new bubbleSort([random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height)]);
+//}
+background(255, 255, 255);
+noStroke();
+bubble.sort();
+bubble.display();
+};
+
+
+
+
+
+
+    }};
+
+    var canvas = document.getElementById("mycanvas"); 
+
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
