@@ -18,8 +18,9 @@
 //Shows unsorted and sorted states
 //https://julianschool.github.io/bubbleSort/
 //It sorts eighty values
-var bubbleSort = function(array){   
-this.array = array;
+var numOfValues = 200;
+var bubbleSort = function(length){   
+this.array = length;
 };
 bubbleSort.prototype.sort = function(){
 for (var i = 0; i < this.array.length-1; i++) {
@@ -34,25 +35,27 @@ for (var j = 0; j < this.array.length-i-1; j++) {
 };
 bubbleSort.prototype.display = function(){
 background(255);
-for(var i = 0; i < width-(width/200); i++){
+for(var i = 0; i < width-(width/numOfValues); i++){
 fill(255-(this.array[i]/height)*255, 255-(this.array[i]/height)*255, 255-(this.array[i]/height)*255);
 noStroke();
-rect(i*(width/200), height-this.array[i], width/200, this.array[i]);
+rect(i*(width/numOfValues), height-this.array[i], width/numOfValues, this.array[i]);
 
 beginShape();
 stroke(255*((height-this.array[i])/height)+50, 0,  0);
 strokeWeight(5);
-vertex(i*(width/200), height-this.array[i]);
-vertex((i+1)*(width/200), height-this.array[i+1]);
+vertex(i*(width/numOfValues), height-this.array[i]);
+vertex((i+1)*(width/numOfValues), height-this.array[i+1]);
 endShape();
 }
 };
-//the random values{
-var bubble = new bubbleSort([random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height)]);
-//}
+var temp = [];
+for (var i = 0; i < numOfValues; i++) {
+temp.push(random(45, height));
+}
+var bubble = new bubbleSort(temp);
 bubble.display();
 fill(255, 0, 0);
-textFont(createFont("impact"), 100);
+textFont(createFont("impact"), 70);
 text("UNSORTED", 0, 70);
 var timer = 0;
 draw = function() {
@@ -60,11 +63,12 @@ draw = function() {
     if(timer >= 15 && timer < 35){
         bubble.display();
         fill(0, 255, 0);
-        textFont(createFont("impact"), 100);
+        textFont(createFont("impact"), 70);
         text("SORTED", 0, 70);
         bubble.sort();
     }
 };
+
 
 
     }};
