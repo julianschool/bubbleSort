@@ -9,9 +9,7 @@
       <canvas id="mycanvas"></canvas> 
     </p>
  </body>
-
  <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
- 
  <script>
     var sketchProc = function(processingInstance) {
      with (processingInstance) {
@@ -35,21 +33,21 @@ for (var j = 0; j < this.array.length-i-1; j++) {
 };
 bubbleSort.prototype.display = function(){
 background(255);
-for(var i = 0; i < width-(width/60); i++){
+for(var i = 0; i < width-(width/30); i++){
 fill(255-(this.array[i]/height)*255, 255-(this.array[i]/height)*255, 255-(this.array[i]/height)*255);
 noStroke();
-rect(i*(width/60), height-this.array[i], width/60, this.array[i]);
+rect(i*(width/30), height-this.array[i], width/30, this.array[i]);
 
 beginShape();
 stroke(255*((height-this.array[i])/height)+50, 0,  0);
 strokeWeight(5);
-vertex(i*(width/60), height-this.array[i]);
-vertex((i+1)*(width/60), height-this.array[i+1]);
+vertex(i*(width/30), height-this.array[i]);
+vertex((i+1)*(width/30), height-this.array[i+1]);
 endShape();
 }
 };
 //the random values{
-var bubble = new bubbleSort([random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height)]);
+var bubble = new bubbleSort([random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height), random(45, height)]);
 //}
 bubble.display();
 fill(255, 0, 0);
@@ -66,23 +64,8 @@ draw = function() {
         bubble.sort();
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
     }};
-
     var canvas = document.getElementById("mycanvas"); 
-
     var processingInstance = new Processing(canvas, sketchProc); 
  </script>
 
